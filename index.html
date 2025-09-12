@@ -1,0 +1,78 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QMB Scavenger Hunt</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #004080, #0066cc);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    img {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin: 15px 0;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #d0e6ff;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="University of Dundee Computing Logo">
+    <h1>Welcome to the QMB Scavenger Hunt!</h1>
+    <p>
+      This scavenger hunt takes you around the <strong>Queen Mother Building (QMB)</strong>,
+      home of Computing at the University of Dundee. Each clue reveals a letter and leads you to the next location.
+      Scan the QR code at each stop to continue your journey.
+    </p>
+    <p>
+      The <strong>School of Computing</strong> at Dundee is a vibrant community, focusing on
+      areas such as Human-Computer Interaction, Assistive Technology, Data Science, and more.
+    </p>
+    <p>
+      We also have an active student society, <strong>DUCS (Dundee University Computing Society)</strong>,
+      which runs events, coding competitions, and social activities throughout the year.
+    </p>
+    <p><em>Good luck, and enjoy the hunt!</em></p>
+  </div>
+  <footer>
+    &copy; University of Dundee Computing · Queen Mother Building
+  </footer>
+</body>
+</html>
