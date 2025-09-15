@@ -84,7 +84,7 @@ img {
     <div id="audio-button-container"></div>
    <script>
   window.addEventListener('load', function () {
-    var audio = new Audio('images/Music.mp3');
+    const audio = new Audio('images/Music.mp3');
     audio.loop = true;
     audio.volume = 1.0;
 
@@ -93,7 +93,6 @@ img {
     }).catch(error => {
       console.log('Autoplay blocked, waiting for user interaction.', error);
 
-      // Create a styled wrapper for the button
       const buttonWrapper = document.createElement('div');
       buttonWrapper.style.border = '2px solid #fff';
       buttonWrapper.style.borderRadius = '15px';
@@ -104,37 +103,44 @@ img {
       buttonWrapper.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
       buttonWrapper.style.textAlign = 'center';
 
-      // Create the button
-      const playButton = document.createElement('button');
-      playButton.textContent = "Click to play sound";
-      playButton.style.fontSize = '1.2em';
-      playButton.style.padding = '10px 20px';
-      playButton.style.border = 'none';
-      playButton.style.borderRadius = '10px';
-      playButton.style.backgroundColor = '#0066cc';
-      playButton.style.color = '#fff';
-      playButton.style.cursor = 'pointer';
-      playButton.style.transition = 'background 0.3s';
+      const toggleButton = document.createElement('button');
+      toggleButton.textContent = "▶ Play Sound";
+      toggleButton.style.fontSize = '1.2em';
+      toggleButton.style.padding = '10px 20px';
+      toggleButton.style.border = 'none';
+      toggleButton.style.borderRadius = '10px';
+      toggleButton.style.backgroundColor = '#0066cc';
+      toggleButton.style.color = '#fff';
+      toggleButton.style.cursor = 'pointer';
+      toggleButton.style.transition = 'background 0.3s';
 
-      playButton.addEventListener('mouseover', () => {
-        playButton.style.backgroundColor = '#004080';
+      toggleButton.addEventListener('mouseover', () => {
+        toggleButton.style.backgroundColor = '#004080';
       });
-      playButton.addEventListener('mouseout', () => {
-        playButton.style.backgroundColor = '#0066cc';
-      });
-
-      // Add click event
-      playButton.addEventListener('click', function () {
-        audio.play();
-       // buttonWrapper.remove(); // Remove the wrapper after playing
+      toggleButton.addEventListener('mouseout', () => {
+        toggleButton.style.backgroundColor = '#0066cc';
       });
 
-      // Append button to wrapper and insert into placeholder div
-      buttonWrapper.appendChild(playButton);
+      let isPlaying = false;
+
+      toggleButton.addEventListener('click', function () {
+        if (!isPlaying) {
+          audio.play();
+          toggleButton.textContent = "⏸ Pause Sound";
+          isPlaying = true;
+        } else {
+          audio.pause();
+          toggleButton.textContent = "▶ Play Sound";
+          isPlaying = false;
+        }
+      });
+
+      buttonWrapper.appendChild(toggleButton);
       document.getElementById('audio-button-container').appendChild(buttonWrapper);
     });
   });
 </script>
+
 
     <p class="clue">QMB Room ???</p>
     <!--
